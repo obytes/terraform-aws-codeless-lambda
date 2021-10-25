@@ -1,7 +1,7 @@
 variable "prefix" {}
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "description" {
@@ -25,7 +25,7 @@ variable "timeout" {
 }
 
 variable "envs" {
-  type = "map"
+  type = map(string)
 }
 
 variable "policy_json" {
