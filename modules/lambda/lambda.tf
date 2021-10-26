@@ -21,12 +21,7 @@ resource "aws_lambda_function" "function" {
     variables = var.envs
   }
 
-  tags = merge(
-    local.common_tags,
-    map(
-      "description", var.description
-    )
-  )
+  tags = local.common_tags
 
   # LAMBDA CI is done through codebuild/codepipeline
   lifecycle {
