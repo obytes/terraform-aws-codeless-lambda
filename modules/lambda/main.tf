@@ -7,4 +7,7 @@ locals {
       description = var.description
     }
   )
+
+  # Workaround https://github.com/hashicorp/terraform/issues/26755#issuecomment-794258499
+  custom_policy_json = var.policy_json[*]
 }

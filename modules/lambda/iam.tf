@@ -15,7 +15,7 @@ data "aws_iam_policy" "managed_policy" {
 #                 LAMBDA POLICY               |
 ###############################################
 resource "aws_iam_policy" "custom_policy" {
-  count  = var.policy_json == null ? 0:1
+  count  = length(local.custom_policy_json)
   name   = "${local.prefix}-custom"
   path   = "/"
   policy = var.policy_json
@@ -52,7 +52,7 @@ resource "aws_iam_role_policy_attachment" "attach_managed_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "attach_custom_policy" {
-  count      = var.policy_json == null ? 0:1
+  count      = length(local.custom_policy_json)
   policy_arn = aws_iam_policy.custom_policy[0].arn
   role       = aws_iam_role.role.name
 }

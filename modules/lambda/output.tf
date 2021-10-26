@@ -10,3 +10,10 @@ output "lambda" {
     invoke_arn = aws_lambda_alias.alias.invoke_arn
   }
 }
+
+output "role" {
+  value = {
+    arn  = aws_iam_role.role.arn
+    name = aws_iam_role.role.name
+  }
+}
