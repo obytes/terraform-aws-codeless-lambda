@@ -7,6 +7,7 @@ output "lambda" {
     arn        = aws_lambda_function.function.arn
     runtime    = aws_lambda_function.function.runtime
     alias      = aws_lambda_alias.alias.name
+    alias_arn  = aws_lambda_alias.alias.arn
     invoke_arn = aws_lambda_alias.alias.invoke_arn
   }
 }
